@@ -1,0 +1,26 @@
+name: Lint
+
+on:
+  push:
+    paths:
+      - '*.py'
+
+jobs:
+  flake8py:
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Setup Python
+        uses: actions/setup-python@1
+        with:
+          python-version: 3.10
+          architecture: x64
+      - name: Install Flake8
+        run: pip install flake8
+      - name: Run Flake8
+        uses: beukprincess/flake8-github-action@releases/v1
+        with:
+          checkName: 'flake8py'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      
