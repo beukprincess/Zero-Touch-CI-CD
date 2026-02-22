@@ -1,0 +1,20 @@
+name: Zero-Touch CI
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  hello-world:
+    runs-on: ubuntu-slim
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Hello
+      run: echo "Hello, It's my first workflow"
+
+    - name: Date
+      run: date
+      
